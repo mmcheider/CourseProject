@@ -1,5 +1,5 @@
 #
-# Description: The goal of this project is to prepare a tidy data that can be 
+# Description: The goal of this project is to prepare tidy data that can be 
 #              used for later analysis. The data was obtained from 
 #              http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 #              and it represented data collected from the accelerometers from 
@@ -31,7 +31,9 @@ features <- read.table("./UCI HAR Dataset/features.txt",
 tmp1 <- grep("mean|std", features$V2, ignore.case = FALSE, value = TRUE)
 tmp2 <- grep("meanFreq",features$V2, ignore.case = FALSE, value = TRUE)
 colnames(mydata) <- features[,2]
-mydata1 <- select(mydata, tmp1, -tmp2)
+# mydata1 <- select(mydata, tmp1, -tmp2) 
+mydata1 <- select(mydata, all_of(tmp1), -all_of(tmp2)) 
+# added all_of() to take care of the warning message
 
 # Step 3. Uses descriptive activity names to name the activities in the data set
 #    - Read in activity labels and merge into one data frame for training and 
@@ -76,7 +78,8 @@ whole <- bind_cols(mydata4, mydata3)
 #      "Measurement" variable in this data set.
 
 whole <- whole %>% group_by(SubjectId, Activity) %>%
-     summarise_each(funs(mean)) %>%
+     # summarise_each(funs(mean)) %>% # taking care of warning message
+     summarise_all(mean) %>%          # change to summarise_all and remove funs
      gather(key = "Measurement", value = "Average", -c(SubjectId, Activity)) %>%
      arrange(Activity, .by_group = TRUE)
 
