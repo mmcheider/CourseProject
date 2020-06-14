@@ -97,13 +97,14 @@ The R script "run_analysis.R" is created to perform the following,
   
 - Summary of the data: 
 
- SubjectId      Activity                  Measurement        Average        
- Min.   : 1.0   WALKING           :1980   Length:11880       Min.   :-0.99767  
- 1st Qu.: 8.0   WALKING_UPSTAIRS  :1980   Class :character   1st Qu.:-0.96205  
- Median :15.5   WALKING_DOWNSTAIRS:1980   Mode  :character   Median :-0.46989  
- Mean   :15.5   SITTING           :1980                      Mean   :-0.48436  
- 3rd Qu.:23.0   STANDING          :1980                      3rd Qu.:-0.07836  
- Max.   :30.0   LAYING            :1980                      Max.   : 0.97451  
+ |SubjectId    |   Activity             |  Measurement     |    Average      |
+ |:------------|:-----------------------|:-----------------|:----------------|
+ |Min.   : 1.0 | WALKING           :1980| Length:11880     | Min.   :-0.99767|  
+ |1st Qu.: 8.0 | WALKING_UPSTAIRS  :1980| Class :character | 1st Qu.:-0.96205| 
+ |Median :15.5 | WALKING_DOWNSTAIRS:1980| Mode  :character | Median :-0.46989|
+ |Mean   :15.5 | SITTING           :1980|                  | Mean   :-0.48436|
+ |3rd Qu.:23.0 | STANDING          :1980|                  | 3rd Qu.:-0.07836|
+ |Max.   :30.0 | LAYING            :1980|                  | Max.   : 0.97451|
  
  
 ### Variable 1 - SubjectId
