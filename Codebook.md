@@ -1,5 +1,5 @@
 ---
-title: "Codebook for Tidy Dataset"
+title: "Codebook"
 author: "Ming-Mei Heider"
 date: "6/14/2020"
 output:
@@ -10,9 +10,10 @@ output:
 
 ## Project Description
 
-This project is to prepare tidy data that can be used for later analysis. The 
-tidy data set is created with the average of each variable for each activity and
-each subject.
+This project is to prepare tidy data that can be used for later analysis. An
+independent tidy data set is created with the average of each variable for each 
+activity and each subject. And the format of this tidy data set is in 
+long/narrow form.
 
 
 ### Collection of the raw data
@@ -34,26 +35,28 @@ These signals were used to estimate variables of the feature vector for each
 pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
+- tBodyAcc-XYZ
+- tGravityAcc-XYZ
+- tBodyAccJerk-XYZ
+- tBodyGyro-XYZ
+- tBodyGyroJerk-XYZ
+- tBodyAccMag
+- tGravityAccMag
+- tBodyAccJerkMag
+- tBodyGyroMag
+- tBodyGyroJerkMag
+- fBodyAcc-XYZ
+- fBodyAccJerk-XYZ
+- fBodyGyro-XYZ
+- fBodyAccMag
+- fBodyAccJerkMag
+- fBodyGyroMag
+- fBodyGyroJerkMag
 
 The variable that was estimated from these signals in this tidy dataset is: 
-mean(): Mean value
+
+- mean(): Mean value
+- std(): Standard deviation
 
 For more information, please see
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
@@ -72,6 +75,9 @@ The steps to create the tidy data file are:
     scripts.
  3. verify that "tidy_dataset.txt" (tidy data file) is generated in your working
     directory after running script successfully.
+ 4. the tidy data file can be read in and viewed with the following commands,
+-      tidy_data <- read.table("tidy_dataset.txt", header = TRUE)
+-      View(tidy_data)
 
 
 ### Cleaning of the data
@@ -84,7 +90,7 @@ The R script "run_analysis.R" is created to perform the following,
 - Uses descriptive activity names to name the activities in the data set
 - Appropriately labels the data set with descriptive variable names.
 - Creates a second, independent tidy data set with the average of each variable 
-  for each activity   and each subject.
+  for each activity and each subject.
 
 
 ### Description of the variables in the tidy_dataset.txt file
@@ -108,67 +114,105 @@ The R script "run_analysis.R" is created to perform the following,
  |Max.   :30.0 | LAYING            :1980|                  | Max.   : 0.97451|
  
  
-### Variable 1 - SubjectId
+### Variable 1 
 
-It identifies the subject who performed the activity for each window sample. 
-
+|Variable Name|  Description   |
+|:------------|:---------------|
+|SubjectId    |Identify the subject who performed the activity for each window sample.| 
+|             |                |
 - Class of the variable: integer vector
 - Unique values/levels of the variable: range from 1 to 30
 - Unit of measurement 
 
 
-### Variable 2 - Activity
+### Variable 2 
 
-It links the class labels with their activity name.
-
+|Variable Name|  Description   |
+|:------------|:---------------|
+|Activity     |Indicate which activity the subject is performing.|
+|             |                |
 - Class of the variable: factor vector with 6 levels
 - Unique values/levels of the variable: "WALKING","WALKING_UPSTAIRS",
   "WALKING_DOWNSTAIRS","SITTIN","STANDING","LAYING"
 - Unit of measurement
 
 
-### Variable 3 - Measurement
+### Variable 3 
 
-Measurement from the sensor signals (accelerometer and gyroscope) with time and 
-frequency domain variables.
-
- - Class of the variable: character vector 
- - Unique values/levels of the variable:
-   "TimeBodyAcc-mean-X"               
-   "TimeBodyAcc-mean-Y"                "TimeBodyAcc-mean-Z"               
-   "TimeBodyAcc-std-X"                 "TimeBodyAcc-std-Y"                
-   "TimeBodyAcc-std-Z"                 "TimeGravityAcc-mean-X"            
-   "TimeGravityAcc-mean-Y"             "TimeGravityAcc-mean-Z"            
-   "TimeGravityAcc-std-X"              "TimeGravityAcc-std-Y"             
-   "TimeGravityAcc-std-Z"              "TimeBodyAccJerk-mean-X"           
-   "TimeBodyAccJerk-mean-Y"            "TimeBodyAccJerk-mean-Z"           
-   "TimeBodyAccJerk-std-X"             "TimeBodyAccJerk-std-Y"            
-   "TimeBodyAccJerk-std-Z"             "TimeBodyGyro-mean-X"              
-   "TimeBodyGyro-mean-Y"               "TimeBodyGyro-mean-Z"              
-   "TimeBodyGyro-std-X"                "TimeBodyGyro-std-Y"               
-   "TimeBodyGyro-std-Z"                "TimeBodyGyroJerk-mean-X"          
-   "TimeBodyGyroJerk-mean-Y"           "TimeBodyGyroJerk-mean-Z"          
-   "TimeBodyGyroJerk-std-X"            "TimeBodyGyroJerk-std-Y"           
-   "TimeBodyGyroJerk-std-Z"            "TimeBodyAccMag-mean"              
-   "TimeBodyAccMag-std"                "TimeGravityAccMag-mean"           
-   "TimeGravityAccMag-std"             "TimeBodyAccJerkMag-mean"          
-   "TimeBodyAccJerkMag-std"            "TimeBodyGyroMag-mean"             
-   "TimeBodyGyroMag-std"               "TimeBodyGyroJerkMag-mean"         
-   "TimeBodyGyroJerkMag-std"           "FrequencyBodyAcc-mean-X"          
-   "FrequencyBodyAcc-mean-Y"           "FrequencyBodyAcc-mean-Z"          
-   "FrequencyBodyAcc-std-X"            "FrequencyBodyAcc-std-Y"           
-   "FrequencyBodyAcc-std-Z"            "FrequencyBodyAccJerk-mean-X"      
-   "FrequencyBodyAccJerk-mean-Y"       "FrequencyBodyAccJerk-mean-Z"      
-   "FrequencyBodyAccJerk-std-X"        "FrequencyBodyAccJerk-std-Y"       
-   "FrequencyBodyAccJerk-std-Z"        "FrequencyBodyGyro-mean-X"         
-   "FrequencyBodyGyro-mean-Y"          "FrequencyBodyGyro-mean-Z"         
-   "FrequencyBodyGyro-std-X"           "FrequencyBodyGyro-std-Y"          
-   "FrequencyBodyGyro-std-Z"           "FrequencyBodyAccMag-mean"         
-   "FrequencyBodyAccMag-std"           "FrequencyBodyBodyAccJerkMag-mean" 
-   "FrequencyBodyBodyAccJerkMag-std"   "FrequencyBodyBodyGyroMag-mean"    
-   "FrequencyBodyBodyGyroMag-std"      "FrequencyBodyBodyGyroJerkMag-mean"
-   "FrequencyBodyBodyGyroJerkMag-std" 
-  - Unit of measurement: 128 readings/window
+|Variable Name|  Description   |
+|:------------|:---------------|
+|Measurement  | Measurement from the sensor signals (accelerometer and gyroscope) with time and frequency domain variables.|
+|             |                |
+- Class of the variable: character vector 
+- Unique values/levels of the variable:
+   - "TimeBodyAcc-mean-X"
+   - "TimeBodyAcc-mean-Y" 
+   - "TimeBodyAcc-mean-Z" 
+   - "TimeBodyAcc-std-X"                 
+   - "TimeBodyAcc-std-Y"                
+   - "TimeBodyAcc-std-Z"   
+   - "TimeGravityAcc-mean-X"            
+   - "TimeGravityAcc-mean-Y"
+   - "TimeGravityAcc-mean-Z"            
+   - "TimeGravityAcc-std-X"              
+   - "TimeGravityAcc-std-Y"             
+   - "TimeGravityAcc-std-Z"              
+   - "TimeBodyAccJerk-mean-X"           
+   - "TimeBodyAccJerk-mean-Y"   
+   - "TimeBodyAccJerk-mean-Z"           
+   - "TimeBodyAccJerk-std-X"             
+   - "TimeBodyAccJerk-std-Y"            
+   - "TimeBodyAccJerk-std-Z"            
+   - "TimeBodyGyro-mean-X"              
+   - "TimeBodyGyro-mean-Y" 
+   - "TimeBodyGyro-mean-Z"              
+   - "TimeBodyGyro-std-X"               
+   - "TimeBodyGyro-std-Y"               
+   - "TimeBodyGyro-std-Z"
+   - "TimeBodyGyroJerk-mean-X"          
+   - "TimeBodyGyroJerk-mean-Y" 
+   - "TimeBodyGyroJerk-mean-Z"          
+   - "TimeBodyGyroJerk-std-X"  
+   - "TimeBodyGyroJerk-std-Y"           
+   - "TimeBodyGyroJerk-std-Z" 
+   - "TimeBodyAccMag-mean"              
+   - "TimeBodyAccMag-std"         
+   - "TimeGravityAccMag-mean"           
+   - "TimeGravityAccMag-std"  
+   - "TimeBodyAccJerkMag-mean"          
+   - "TimeBodyAccJerkMag-std"   
+   - "TimeBodyGyroMag-mean"             
+   - "TimeBodyGyroMag-std"             
+   - "TimeBodyGyroJerkMag-mean"         
+   - "TimeBodyGyroJerkMag-std"       
+   - "FrequencyBodyAcc-mean-X"          
+   - "FrequencyBodyAcc-mean-Y" 
+   - "FrequencyBodyAcc-mean-Z"          
+   - "FrequencyBodyAcc-std-X"      
+   - "FrequencyBodyAcc-std-Y"           
+   - "FrequencyBodyAcc-std-Z"     
+   - "FrequencyBodyAccJerk-mean-X"      
+   - "FrequencyBodyAccJerk-mean-Y"       
+   - "FrequencyBodyAccJerk-mean-Z"      
+   - "FrequencyBodyAccJerk-std-X"    
+   - "FrequencyBodyAccJerk-std-Y"       
+   - "FrequencyBodyAccJerk-std-Z"     
+   - "FrequencyBodyGyro-mean-X"         
+   - "FrequencyBodyGyro-mean-Y"       
+   - "FrequencyBodyGyro-mean-Z"         
+   - "FrequencyBodyGyro-std-X"       
+   - "FrequencyBodyGyro-std-Y"          
+   - "FrequencyBodyGyro-std-Z"        
+   - "FrequencyBodyAccMag-mean"         
+   - "FrequencyBodyAccMag-std"       
+   - "FrequencyBodyBodyAccJerkMag-mean" 
+   - "FrequencyBodyBodyAccJerkMag-std"  
+   - "FrequencyBodyBodyGyroMag-mean"    
+   - "FrequencyBodyBodyGyroMag-std"    
+   - "FrequencyBodyBodyGyroJerkMag-mean"
+   - "FrequencyBodyBodyGyroJerkMag-std" 
+   
+- Unit of measurement: 128 readings/window
 
 ##### Notes on variable 3:
 
@@ -176,13 +220,15 @@ Please see the description of "Collection of the raw data" for how each
 measurement is constructed.
  
  
-### Variable 4 - Average
+### Variable 4 
 
-It shows average of each measurement for each activity and each subject. 
-
- - Class of the variable: numeric vector
- - Unique values/levels of the variable: range from -0.99767 to 0.97451
- - Unit of measurement
+|Variable Name|  Description   |
+|:------------|:---------------|
+|  Average    |Mean value of each measurement for each activity and each subject.|
+|             |                |
+- Class of the variable: numeric vector
+- Unique values/levels of the variable: range from -0.99767 to 0.97451
+- Unit of measurement
 
 
  
