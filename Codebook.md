@@ -66,16 +66,16 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 The steps to create the tidy data file are:
 
- 1. download the the Samsung data from 
+ 1. Download the the Samsung data from 
     http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
     or https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip,
     extract all files and saved them in a folder called "UCI HAR Dataset" in 
     your working directory
- 2. execute the run_analysis.R script in an enviroment that can interpret R 
+ 2. Execute the run_analysis.R script in an enviroment that can interpret R 
     scripts.
- 3. verify that "tidy_dataset.txt" (tidy data file) is generated in your working
+ 3. Verify that "tidy_dataset.txt" (tidy data file) is generated in your working
     directory after running script successfully.
- 4. the tidy data file can be read in and viewed with the following commands,
+ 4. The tidy data file can be read in and viewed with the following commands,
 -      tidy_data <- read.table("tidy_dataset.txt", header = TRUE)
 -      View(tidy_data)
 
